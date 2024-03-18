@@ -236,13 +236,17 @@ workspace:
     tidy-script:
       path: script
       dependencies:
+        - argonaut-codecs
+        - argonaut-core
         - arrays
         - console
+        - debug
         - effect
         - exceptions
         - maybe
         - node-buffer
         - node-child-process
+        - node-execa
         - node-fs
         - node-path
         - node-process
@@ -252,6 +256,8 @@ workspace:
       test_dependencies: []
       build_plan:
         - aff
+        - argonaut-codecs
+        - argonaut-core
         - arraybuffer-types
         - arrays
         - bifunctors
@@ -260,6 +266,7 @@ workspace:
         - contravariant
         - control
         - datetime
+        - debug
         - distributive
         - effect
         - either
@@ -276,6 +283,7 @@ workspace:
         - integers
         - invariant
         - js-date
+        - js-timers
         - lazy
         - lists
         - maybe
@@ -283,7 +291,9 @@ workspace:
         - node-buffer
         - node-child-process
         - node-event-emitter
+        - node-execa
         - node-fs
+        - node-human-signals
         - node-os
         - node-path
         - node-process
@@ -295,10 +305,12 @@ workspace:
         - ordered-collections
         - orders
         - parallel
+        - parsing
         - partial
         - posix-types
         - prelude
         - profunctor
+        - record
         - refs
         - safe-coerce
         - st
@@ -309,7 +321,9 @@ workspace:
         - type-equality
         - typelevel-prelude
         - unfoldable
+        - unicode
         - unsafe-coerce
+        - unsafe-reference
   package_set:
     address:
       registry: 50.4.0
@@ -998,6 +1012,13 @@ packages:
       - partial
       - prelude
       - tuples
+  debug:
+    type: registry
+    version: 6.0.2
+    integrity: sha256-vmkYFuXYuELBzeauvgHG6E6Kf/Hp1dAnxwE9ByHfwSg=
+    dependencies:
+      - functions
+      - prelude
   distributive:
     type: registry
     version: 6.0.0
@@ -1216,6 +1237,12 @@ packages:
       - foreign
       - integers
       - now
+  js-timers:
+    type: registry
+    version: 6.1.0
+    integrity: sha256-znHWLSSOYw15P5DTcsAdal2lf7nGA2yayLdOZ2t5r7o=
+    dependencies:
+      - effect
   language-cst-parser:
     type: git
     url: https://github.com/srghma/purescript-language-cst-parser.git
@@ -1340,6 +1367,49 @@ packages:
       - nullable
       - prelude
       - unsafe-coerce
+  node-execa:
+    type: registry
+    version: 5.0.0
+    integrity: sha256-yNcgbCs4guwoTApyV6LRoYCYnU5loWgQiqMtsbloZqk=
+    dependencies:
+      - aff
+      - arrays
+      - control
+      - effect
+      - either
+      - exceptions
+      - foldable-traversable
+      - foreign
+      - foreign-object
+      - functions
+      - integers
+      - js-timers
+      - maybe
+      - node-buffer
+      - node-child-process
+      - node-event-emitter
+      - node-fs
+      - node-human-signals
+      - node-os
+      - node-path
+      - node-process
+      - node-streams
+      - nullable
+      - numbers
+      - ordered-collections
+      - parallel
+      - parsing
+      - partial
+      - posix-types
+      - prelude
+      - record
+      - refs
+      - safe-coerce
+      - strings
+      - tailrec
+      - tuples
+      - unsafe-coerce
+      - unsafe-reference
   node-fs:
     type: registry
     version: 9.1.0
@@ -1382,6 +1452,17 @@ packages:
       - refs
       - strings
       - tuples
+  node-human-signals:
+    type: registry
+    version: 1.0.0
+    integrity: sha256-HOUfMQTAIuL5AOCUlJJcKq78masah+388eQOdloYH1g=
+    dependencies:
+      - arrays
+      - control
+      - foreign-object
+      - maybe
+      - ordered-collections
+      - prelude
   node-os:
     type: registry
     version: 5.1.0
@@ -1534,6 +1615,36 @@ packages:
       - profunctor
       - refs
       - transformers
+  parsing:
+    type: registry
+    version: 10.2.0
+    integrity: sha256-ZDIdMFAKkst57x6BVa1aUWJnS8smoZnXsZ339Aq1mPA=
+    dependencies:
+      - arrays
+      - control
+      - effect
+      - either
+      - enums
+      - foldable-traversable
+      - functions
+      - identity
+      - integers
+      - lazy
+      - lists
+      - maybe
+      - newtype
+      - nullable
+      - numbers
+      - partial
+      - prelude
+      - st
+      - strings
+      - tailrec
+      - transformers
+      - tuples
+      - unfoldable
+      - unicode
+      - unsafe-coerce
   partial:
     type: registry
     version: 4.0.0
@@ -1721,11 +1832,25 @@ packages:
       - partial
       - prelude
       - tuples
+  unicode:
+    type: registry
+    version: 6.0.0
+    integrity: sha256-QJnTVZpmihEAUiMeYrfkusVoziJWp2hJsgi9bMQLue8=
+    dependencies:
+      - foldable-traversable
+      - maybe
+      - strings
   unsafe-coerce:
     type: registry
     version: 6.0.0
     integrity: sha256-IqIYW4Vkevn8sI+6aUwRGvd87tVL36BBeOr0cGAE7t0=
     dependencies: []
+  unsafe-reference:
+    type: registry
+    version: 5.0.0
+    integrity: sha256-zU7BhfJU14nXQRZG9iADsp0mSiKhz07OcKyjRB2YT+Y=
+    dependencies:
+      - prelude
   variant:
     type: registry
     version: 8.0.0

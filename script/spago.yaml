@@ -1,16 +1,20 @@
 package:
   name: tidy-script
   dependencies:
-  - arrays
-  - console
-  - effect
-  - exceptions
-  - maybe
-  - node-buffer
-  - node-child-process
-  - node-fs
-  - node-path
-  - node-process
-  - prelude
-  - strings
-  - unsafe-coerce
+    - argonaut-codecs
+    - argonaut-core
+    - node-execa
+    - debug
+    - arrays
+    - console
+    - effect
+    - exceptions
+    - maybe
+    - node-buffer
+    - node-child-process
+    - node-fs
+    - node-path
+    - node-process
+    - prelude
+    - strings
+    - unsafe-coerce
